@@ -1,0 +1,23 @@
+﻿
+------------------------------------------------------------
+MOVING AND OBJECT RELATIVE TO ITS PARENT
+----------------------------------------------------------------
+transform.position changes an objects World position.
+
+transform.localPosition changes an objects reletive position based on it's parents location.
+
+ ItemObject = (GameObject)Object.Instantiate(Prefab_Item, new Vector3(0, 0, 0), Quaternion.identity);
+  ItemObject.transform.parent = ParentObject.transform;
+  ItemObject.transform.localPosition = new Vector3(0, 0, 0f);
+
+  ------------------------------------------------------------
+MOVING AND OBJECT RELATIVE TO ITS PARENT
+----------------------------------------------------------------
+
+  All objects can be anchored to the top-left of their parent, regardless of how deep they are in the hierarchy.
+
+Make sure the parent (GameMenu) is set to stretch along both X and Y axes and take up the whole space (this way, the parent is the size of the whole screen).
+
+Set the alignment of WavesBanner to 'Top Left'
+
+Set the pivot for WavesBanner to '0','1', which means that you're placing the object based on the top-left corner.
