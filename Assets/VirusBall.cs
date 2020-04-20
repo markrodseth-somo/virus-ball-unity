@@ -7,7 +7,8 @@ public class VirusBall : MonoBehaviour
     public static int collisionCount = 0;
     public static int numberOfBalls = 1;
 
-    private float speed = 15;
+    private float minSpeed = 5; 
+    private float maxSpeed = 15;
     private float maxTorque = 100;
     public Rigidbody2D rigidbody2;
     public bool IsVirus;
@@ -37,7 +38,7 @@ public class VirusBall : MonoBehaviour
 
         Rigidbody2D rigidbody = this.gameObject.GetComponent<Rigidbody2D>();
         rigidbody.AddTorque(Random.Range(-maxTorque, maxTorque));
-        rigidbody.velocity = new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f)) * Random.Range(0, speed);
+        rigidbody.velocity = new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f)) * Random.Range(minSpeed, maxSpeed);
 
         int randomNumber = Random.Range(0, 4);
 

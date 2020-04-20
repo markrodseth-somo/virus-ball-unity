@@ -58,6 +58,8 @@ public class DeployCircles : MonoBehaviour
 
         VirusBallManager.CurrentGameStatus = VirusBallManager.GameStatus.Started;
 
+
+
         StartCoroutine(VirusWave());
 
        

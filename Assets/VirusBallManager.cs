@@ -17,6 +17,7 @@ public class VirusBallManager
     public static float NumberOfGreenBalls = 0;
     public static GameObject healthBar;
     public static GameObject score;
+    public static GameObject youDiedPanel;
 
     public static List<VirusBall> Balls { get; set; }
 
@@ -25,6 +26,17 @@ public class VirusBallManager
         healthBar = GameObject.Find("HealthBarBackground");
         score = GameObject.Find("Score");
         Balls = new List<VirusBall>();
+        healthBar = GameObject.Find("HealthBarBackground");
+
+        youDiedPanel= GameObject.Find("YouDiedBlock");
+        youDiedPanel.SetActive(false);
+        Button btn = youDiedPanel.GetComponentInChildren<Button>();
+        btn.onClick.AddListener(TaskOnClick);
+    }
+
+    static void TaskOnClick()
+    {
+        Debug.Log("You have clicked the button!");
     }
 
     public static void UpdateHealthBar()
@@ -47,6 +59,7 @@ public class VirusBallManager
         if (PercentageRedBalls == 100)
         {
             VirusBallManager.CurrentGameStatus = GameStatus.Stopped;
+            youDiedPanel.SetActiveRecursively(true);
 
             foreach (VirusBall child in Balls)
             {
